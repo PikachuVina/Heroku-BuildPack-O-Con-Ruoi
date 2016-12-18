@@ -4,8 +4,10 @@ TESSERACT_OCR_VERSION=3.03
 TESSERACT_OCR_DATA_VERSION=3.02
 
 TESSERACT_OCR_TGZ=tesseract-ocr-$TESSERACT_OCR_VERSION.tar.gz
+LEPTONICA_OCR_TGZ=tesseract-leptonica.tar.gz
 
 INSTALL_DIR=$BUILD_DIR/vendor/tesseract-ocr/
+LEPTONICA_DIR=$BUILD_DIR/vendor/
 INSTALL_DIR_TRAINING_DATA=$BUILD_DIR/vendor/
 TESSERACT_OCR_DIR=${HOME}/vendor/tesseract-ocr
 ENVSCRIPT=$BUILD_DIR/.profile.d/tesseract-ocr.sh
@@ -15,6 +17,9 @@ TESSERACT_OCR_LANGUAGES=eng,vie
 echo "Unpacking Tesseract-OCR binaries"
 mkdir -p $INSTALL_DIR
 tar -zxvf $TESSERACT_OCR_TGZ -C $INSTALL_DIR
+
+echo "Unpacking Leptonica-OCR binaries"
+tar -zxvf $LEPTONICA_OCR_TGZ -C $LEPTONICA_DIR
 
 echo 'Getting Tesseract-OCR training data'
 if [ $TESSERACT_OCR_LANGUAGES ]
