@@ -1,7 +1,21 @@
 #!/bin/bash
+export_env_dir() {
+  env_dir=$1
+  whitelist_regex=${2:-''}
+  blacklist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
+  if [ -d "$env_dir" ]; then
+    for e in $(ls $env_dir); do
+      echo "$e" | grep -E "$whitelist_regex" | grep -qvE "$blacklist_regex" &&
+      export "$e=$(cat $env_dir/$e)"
+      :
+    done
+  fi
+}
 BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
+
+export_env_dir $ENV_DIR
 
 TESSERACT_OCR_VERSION=3.03
 TESSERACT_OCR_DATA_VERSION=3.02
@@ -13,6 +27,7 @@ INSTALL_DIR=$BUILD_DIR/vendor/tesseract-ocr/
 LEPTONICA_DIR=$BUILD_DIR/vendor/
 INSTALL_DIR_TRAINING_DATA=$BUILD_DIR/vendor/
 TESSERACT_OCR_DIR=${HOME}/vendor/tesseract-ocr
+
 ENVSCRIPT=$BUILD_DIR/.profile.d/tesseract-ocr.sh
 
 TESSERACT_OCR_LANGUAGES=eng,vie
