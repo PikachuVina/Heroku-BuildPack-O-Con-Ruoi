@@ -20,7 +20,7 @@ export_env_dir $ENV_DIR
 TESSERACT_OCR_VERSION=4.00
 TESSERACT_OCR_DATA_VERSION=4.00
 
-TESSERACT_OCR_TGZ=tesseract-ocr-$TESSERACT_OCR_VERSION.tar.bz2
+TESSERACT_OCR_TGZ=tesseract-ocr-$TESSERACT_OCR_VERSION.tar.gz
 
 INSTALL_DIR=$BUILD_DIR/vendor/tesseract-ocr/
 LEPTONICA_DIR=$BUILD_DIR/vendor/
@@ -34,8 +34,8 @@ TESSERACT_OCR_LANGUAGES=eng,vie
 
 echo "-----> Giai Nen Tap Tin Tesseract-OCR"
 mkdir -p $INSTALL_DIR
-wget https://www.dropbox.com/s/h66tf2zq7jcbpg4/$TESSERACT_OCR_TGZ?dl=1 -O $TESSERACT_OCR_TGZ
-tar -xjv -C $INSTALL_DIR -f -
+wget https://www.dropbox.com/s/zy1sd4do9eg2pd2/$TESSERACT_OCR_TGZ?dl=1 -O $TESSERACT_OCR_TGZ
+tar -zxvf -C $INSTALL_DIR
 
 echo '-----> Kiem Tra Du Lieu Tesseract-OCR-Data'
 if [ $TESSERACT_OCR_LANGUAGES ]
