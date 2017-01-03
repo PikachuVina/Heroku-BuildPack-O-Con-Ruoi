@@ -34,8 +34,7 @@ TESSERACT_OCR_LANGUAGES=eng,vie
 
 echo "-----> Giai Nen Tap Tin Tesseract-OCR"
 mkdir -p $INSTALL_DIR
-wget https://www.dropbox.com/s/zy1sd4do9eg2pd2/$TESSERACT_OCR_TGZ?dl=1 -O $TESSERACT_OCR_TGZ
-tar -zxv $TESSERACT_OCR_TGZ -C $INSTALL_DIR
+curl https://dl.dropboxusercontent.com/s/zy1sd4do9eg2pd2/$TESSERACT_OCR_TGZ -o - | tar -xz -C $INSTALL_DIR -f -
 
 echo '-----> Kiem Tra Du Lieu Tesseract-OCR-Data'
 if [ $TESSERACT_OCR_LANGUAGES ]
