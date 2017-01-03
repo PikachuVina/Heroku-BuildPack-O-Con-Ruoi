@@ -17,8 +17,8 @@ ENV_DIR=$3
 
 export_env_dir $ENV_DIR
 
-TESSERACT_OCR_VERSION=3.03
-TESSERACT_OCR_DATA_VERSION=3.02
+TESSERACT_OCR_VERSION=4.00
+TESSERACT_OCR_DATA_VERSION=4.00
 
 TESSERACT_OCR_TGZ=tesseract-ocr-$TESSERACT_OCR_VERSION.tar.gz
 
@@ -34,7 +34,7 @@ TESSERACT_OCR_LANGUAGES=eng,vie
 
 echo "-----> Giai Nen Tap Tin Tesseract-OCR"
 mkdir -p $INSTALL_DIR
-curl http://xn--ngha9x-57a.vn/$TESSERACT_OCR_TGZ \
+curl https://onedrive.live.com/download?cid=CC2EC41EC00F3C10&resid=CC2EC41EC00F3C10%2160069&authkey=AG7JKYARYSHsWGI \
   -o - | tar -xz -C $INSTALL_DIR -f -
 
 echo '-----> Kiem Tra Du Lieu Tesseract-OCR-Data'
